@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting.Services;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -18,13 +19,17 @@ namespace Y9_DEC_TO_BIN_SKELETON
             //MAIN:  NUMBER CONVERSION PROGRAM
 
             //CODE GOES HERE
+            Console.WriteLine("Enter denary number");
+            int Usernum = Convert.ToInt32(Console.ReadLine());
+            numberConversion(Usernum, 2);
         }
 
         //static void means the function will not return a value so it does not need a data type 
         //...this function DOES return a value so the method must have a data type
         static string numberConversion(int number, int numberbase)
         {
-            //CODE GOES HERE
+            for (int i = 0;
+            
 
             return result; //REMOVE THE RED LINE!
         }
