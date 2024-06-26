@@ -22,10 +22,11 @@ namespace Y9_DEC_TO_BIN_SKELETON
 
             Console.WriteLine("Enter a number");
             int h = Convert.ToInt32(Console.ReadLine());
-            for (int i = 0; i < h; i++) {
-                h = h -1;
+            for (int i = 0; i < h; i++)
+            {
+                h = h - 1;
                 Console.WriteLine(h);
-                
+
             }
 
 
@@ -38,11 +39,11 @@ namespace Y9_DEC_TO_BIN_SKELETON
             Console.WriteLine("enter something");
             string second = Console.ReadLine();
             string final = first + second;
-            Console.WriteLine( final);
+            Console.WriteLine(final);
 
 
             //STARTER: Practice using breakpoints and the watch window (F8 to single-step, F11 to start in single step mode)
-           /* int myInt = 0; *///just for testing single stepping
+            /* int myInt = 0; *///just for testing single stepping
             string myString = "12"; //watch me being cast from string to int
             int myStringAsInt = Convert.ToInt32(myString); //watch me cast from string to int
 
@@ -51,6 +52,7 @@ namespace Y9_DEC_TO_BIN_SKELETON
             //CODE GOES HERE
             Console.WriteLine("Enter denary number");
             int Usernum = Convert.ToInt32(Console.ReadLine());
+            
             Console.WriteLine(numberConversion(Usernum, 2)); 
             
         }
@@ -62,7 +64,9 @@ namespace Y9_DEC_TO_BIN_SKELETON
             int y = 0;
             int i = 0;
             int bitNum = 0;
-            string[] Binary = { };
+            string userNum = Convert.ToString(number);
+            int length = userNum.Length;
+           new string[length] Binary = { };
             string result = "";
 
             while ( i == 0)
@@ -80,10 +84,11 @@ namespace Y9_DEC_TO_BIN_SKELETON
                 }
             };
             
-            for (int h = 0; h == bitNum ; h++)
+            for (int h = 0; h <= 8 ; )
             {
                 
                     result = result + Binary[h] ; 
+                h = h + 1;
             }
 
             return result; //REMOVE THE RED LINE!
