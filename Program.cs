@@ -56,7 +56,7 @@ namespace Y9_DEC_TO_BIN_SKELETON
             Console.WriteLine("pLEASE ENTER THE BASE");
             int numberbase = Convert.ToInt32(Console.ReadLine());
             Console.WriteLine(numberConversion(Usernum, numberbase));
-            
+
         }
 
         //static void means the function will not return a value so it does not  need a data type 
@@ -65,37 +65,50 @@ namespace Y9_DEC_TO_BIN_SKELETON
         {
             int y = 0;
             int i = 0;
-           
-            //string userNum = Convert.ToString(number);
-            //int length = userNum.Length;
-            int[] Binary = new int[8]; 
-            
+
+
+            string Binary = "";
+
             string result = "";
 
-            while ( i == 0)
+            while (i == 0)
             {
-                 Binary[y] = number % numberbase;
-                
-                
-                
+                if (y == 0)
+                {
+                    Binary = Convert.ToString(number % numberbase);
+                }
+                else
+                {
+                    Binary = Binary + Convert.ToString(number % numberbase);
+                }
+
+
                 y = y++;
-                
+
                 number = number / numberbase;
-                
-                
+                if (number == 0) 
+                { i++; }
+
             };
             int m = Binary.Length;
             int l = 0;
             while (m != 0)
             {
-                result = Binary [m - 1];
+                if (l == 0) 
+                {
+                    result = Convert.ToString(Binary[m - 1]);
+                }
+                else
+                {
+                    result = result + Convert.ToString(Binary[m - 1]);
+                }
                 m--;
                 l++;
             }
-            if (number == 0) {
-            Console.WriteLine(result);
+           
 
-            return result; //REMOVE THE RED LINE!
+                return result; //REMOVE THE RED LINE!
+            
         }
     }
 }
