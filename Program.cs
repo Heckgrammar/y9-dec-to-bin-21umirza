@@ -77,7 +77,8 @@ namespace Y9_DEC_TO_BIN_SKELETON
                 {
                     Binary = Convert.ToString(number % numberbase);
                 }
-                else
+                
+                if (y != 0) 
                 {
                     Binary = Binary + Convert.ToString(number % numberbase);
                 }
