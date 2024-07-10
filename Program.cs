@@ -54,8 +54,7 @@ namespace Y9_DEC_TO_BIN_SKELETON
 
             int Usernum = 0;
             int numberbasee = 0;
-            Console.WriteLine("Press 1 to Start the denary to binary conversion" +
-                "Press 2 to start the binary the denary conversion programmar");
+            Console.WriteLine("Press 1 to Start the denary to binary conversion if not then press any key to continue"); 
             if (Convert.ToInt32(Console.ReadLine()) == 1)
             {
                 while (Usernum == 0 || Usernum < 0)
@@ -69,13 +68,13 @@ namespace Y9_DEC_TO_BIN_SKELETON
             }
 
 
+            Console.WriteLine("Press 2 to Start the denary to binary conversion if not then press any key to continue");
             if (Convert.ToInt32(Console.ReadLine()) == 2)
             {
-                while (Usernum == 0 || Usernum < 0)
-                {
-                    Console.WriteLine("Enter denary number");
+                
+                    Console.WriteLine("Enter binary number");
                     Usernum = Convert.ToInt32(Console.ReadLine());
-                }
+                
                 Console.WriteLine(numbertodenaryConversion(Usernum));
 
             }
@@ -194,13 +193,15 @@ namespace Y9_DEC_TO_BIN_SKELETON
             int u = binnumber.Length - 1;
             int i = 0;
             int x = 0;
-            while (u != 0)
+            char c =Convert.ToChar( 1);
+            while (u != -1)
             {
-                if (binnumber[u] == 1)
+                char binnumber2 = binnumber[u];
+                if (binnumber2 == c)
                 {
                     if (i != 0)
                     {
-                        x = x + (2 * y);
+                        x += (2 * y);
                     }
                     if (i == 0)
                     {
