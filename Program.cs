@@ -50,89 +50,51 @@ namespace Y9_DEC_TO_BIN_SKELETON
 
             //MAIN:  NUMBER CONVERSION PROGRAM
 
-           
+
 
             int Usernum = 0;
             int numberbasee = 0;
-            Console.WriteLine("Press 1 to Start the denary to binary conversion if not then press any key to continue"); 
+            Console.WriteLine("Press 1 to Start the denary to binary conversion if not then press any number to continue");
             if (Convert.ToInt32(Console.ReadLine()) == 1)
             {
                 while (Usernum == 0 || Usernum < 0)
                 {
                     Console.WriteLine("Enter denary number");
                     Usernum = Convert.ToInt32(Console.ReadLine());
-                    Console.WriteLine("pLEASE ENTER THE BASE");
+                    Console.WriteLine("Please enter the base");
                     numberbasee = Convert.ToInt32(Console.ReadLine());
                 }
                 Console.WriteLine(numberConversion(Usernum, numberbasee));
             }
 
 
-            Console.WriteLine("Press 2 to Start the denary to binary conversion if not then press any key to continue");
+
+            Console.WriteLine("Press 2 to Start the denary to binary conversion if not then press any number to continue");
             if (Convert.ToInt32(Console.ReadLine()) == 2)
             {
-                
-                    Console.WriteLine("Enter binary number");
-                    Usernum = Convert.ToInt32(Console.ReadLine());
-                
+
+                Console.WriteLine("Enter binary number");
+                Usernum = Convert.ToInt32(Console.ReadLine());
+
                 Console.WriteLine(numbertodenaryConversion(Usernum));
 
             }
-            //if (numberbase == 16)
-            //{ Console.WriteLine(Hexadecimal(Usernum, numberbase)); }
-
-           
-
-            //        static string Hexadecimal(int number, int numberbase)
-            //        {
-            //            int y = 0;
-            //            int i = 0;
 
 
-            //            string Binary = "";
 
-            //            string result = "";
+            Console.WriteLine("Press 3 to Start the denary to binary conversion if not then press any number to continue");
+            if (Convert.ToInt32(Console.ReadLine()) == 3)
+            {
 
-            //            while (i == 0)
-            //            {
-            //                if (y == 0)
-            //                {
-            //                    Binary = Convert.ToString(number % numberbase);
-            //                }
+                Console.WriteLine("Enter hexadecimal number");
+                Usernum = Convert.ToInt32(Console.ReadLine());
 
-            //                if (y != 0)
-            //                {
-            //                    Binary = Binary + Convert.ToString(number % numberbase);
-            //                }
+                Console.WriteLine(Bintohex(Usernum));
 
-
-            //                y = y + 1;
-
-            //                number = number / numberbase;
-            //                if (number == 0)
-            //                { i++; }
-
-            //            };
-            //            int m = Binary.Length;
-
-
-            //            string substring = Binary.Substring(0, 4);
-
-            //            string Hexadecimal = "";
-            //            int substring2 = Convert.ToInt32(substring);
-            //            if (substring2 >9) {
-            //                if (substring2 == 10) { Hexadecimal = "A"; }
-            //                if (substring2 == 11) { Hexadecimal = "B"; }
-            //                if (substring2 == 12) { Hexadecimal = "C"; }
-            //                if (substring2 ==13) { Hexadecimal = "D"; }
-            //                if (substring2 == 14) { Hexadecimal = "E"; }
-            //                if (substring2 == 15) { Hexadecimal = "F"; }
-            //                if (substring2 == 16) { while () { } }
-
+            }
         }
 
-        //static void means the function will not return a value so it does not  need a data type 
-        //...this function DOES return a value so the method must have a data type
+
         static string numberConversion(int number, int numberbase)
         {
             int y = 0;
@@ -185,6 +147,12 @@ namespace Y9_DEC_TO_BIN_SKELETON
 
         }
 
+
+
+
+
+
+
         static string numbertodenaryConversion(int number)
 
         {
@@ -193,15 +161,14 @@ namespace Y9_DEC_TO_BIN_SKELETON
             int u = binnumber.Length - 1;
             int i = 0;
             int x = 0;
-            char c =Convert.ToChar( 1);
             while (u != -1)
             {
-                char binnumber2 = binnumber[u];
-                if (binnumber2 == c)
+                int binnumber2 = Convert.ToInt32(binnumber[u]);
+                if (binnumber2 == 49)
                 {
                     if (i != 0)
                     {
-                        x += (2 * y);
+                        x += (y);
                     }
                     if (i == 0)
                     {
@@ -216,6 +183,62 @@ namespace Y9_DEC_TO_BIN_SKELETON
             return result;
 
         }
-    } 
+
+
+
+
+
+
+
+
+
+        static string Bintohex(int number)
+        {
+
+
+
+
+           
+
+            int y = 0;
+            int i = 0;
+
+
+            string Binary = "";
+
+            string result = "";
+            Binary = Binary + number / 16;
+
+
+            int m = Binary.Length-1;
+
+
+            string substring = Binary.Substring(m-4, m);
+
+            string Hexadecimal = "";
+            int substring2 = Convert.ToInt32(substring);
+            if (substring2 > 9)
+            {
+                if (substring2 == 10) { Hexadecimal = "A"; }
+                if (substring2 == 11) { Hexadecimal = "B"; }
+                if (substring2 == 12) { Hexadecimal = "C"; }
+                if (substring2 == 13) { Hexadecimal = "D"; }
+                if (substring2 == 14) { Hexadecimal = "E"; }
+                if (substring2 == 15) { Hexadecimal = "F"; }
+                if (substring2 == 16) { while () { } }
+            }
+            return result
+        }
+
+
+
+
+
+
+    
+    
+    
+    }
+
 }
 
