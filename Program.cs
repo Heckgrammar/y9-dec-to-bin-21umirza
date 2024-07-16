@@ -48,12 +48,33 @@ namespace Y9_DEC_TO_BIN_SKELETON
             //string myString = "12"; //watch me being cast from string to int
             //int myStringAsInt = Convert.ToInt32(myString); //watch me cast from string to int
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             //MAIN:  NUMBER CONVERSION PROGRAM
 
 
 
             int Usernum = 0;
-            int numberbasee = 0;
+            int numberbase = 0;
+
+
+
             Console.WriteLine("Press 1 to Start the denary to binary conversion if not then press any number to continue");
             if (Convert.ToInt32(Console.ReadLine()) == 1)
             {
@@ -62,9 +83,9 @@ namespace Y9_DEC_TO_BIN_SKELETON
                     Console.WriteLine("Enter denary number");
                     Usernum = Convert.ToInt32(Console.ReadLine());
                     Console.WriteLine("Please enter the base");
-                    numberbasee = Convert.ToInt32(Console.ReadLine());
+                    numberbase = Convert.ToInt32(Console.ReadLine());
                 }
-                Console.WriteLine(numberConversion(Usernum, numberbasee));
+                Console.WriteLine(numberConversion(Usernum, numberbase));
             }
 
 
@@ -82,11 +103,26 @@ namespace Y9_DEC_TO_BIN_SKELETON
 
 
 
-            Console.WriteLine("Press 3 to Start the denary to binary conversion if not then press any number to continue");
+            Console.WriteLine("Press 3 to Start the denary to hexadecimal conversion if not then press any number to continue");
             if (Convert.ToInt32(Console.ReadLine()) == 3)
+
             {
 
-                Console.WriteLine("Enter hexadecimal number");
+                Console.WriteLine("Enter denary number");
+                Usernum = Convert.ToInt32(Console.ReadLine());
+
+                Console.WriteLine(Dectohex(Usernum));
+
+            }
+
+
+
+
+            Console.WriteLine("Press 4 to Start the binary to hexadecimal conversion if not then press any number to continue");
+            if (Convert.ToInt32(Console.ReadLine()) == 4)
+            {
+
+                Console.WriteLine("Enter binary number");
                 Usernum = Convert.ToInt32(Console.ReadLine());
 
                 Console.WriteLine(Bintohex(Usernum));
@@ -192,42 +228,68 @@ namespace Y9_DEC_TO_BIN_SKELETON
 
 
 
-        static string Bintohex(int number)
+        static string Dectohex(int number)
         {
+            string result = null;
+
+
+            int substring = 0;
+            if (number <= 9)
+            {
+                result = Convert.ToString(number / 16);
+            }
+
+
+
+            while (number >=9) 
+            {
+
+                substring = number / 16;
+                number = number / 16;
+
+                if (substring > 9)
+                {
+                    if (substring == 10) { result = result + "A"; }
+                    if (substring == 11) { result = result + "B"; }
+                    if (substring == 12) { result = result + "C"; }
+                    if (substring == 13) { result = result + "D"; }
+                    if (substring == 14) { result = result + "E"; }
+                    if (substring == 15) { result = result + "F"; }
+
+                }
+                if (number <= 9)
+                {
+                    result = Convert.ToString(result);
+                }
 
 
 
 
-           
-
-            int y = 0;
-            int i = 0;
 
 
-            string Binary = "";
-
-            string result = "";
-            Binary = Binary + number / 16;
-
-
-            int m = Binary.Length-1;
+            }
+            
+            
+          
 
 
-            string substring = Binary.Substring(m-4, m);
 
-            string Hexadecimal = "";
-            int substring2 = Convert.ToInt32(substring);
+            int substring2 = number % 16;
+            if (substring2 != 0 && substring2<9 )
+
+              result = result + Convert.ToString(substring2);
+
             if (substring2 > 9)
             {
-                if (substring2 == 10) { Hexadecimal = "A"; }
-                if (substring2 == 11) { Hexadecimal = "B"; }
-                if (substring2 == 12) { Hexadecimal = "C"; }
-                if (substring2 == 13) { Hexadecimal = "D"; }
-                if (substring2 == 14) { Hexadecimal = "E"; }
-                if (substring2 == 15) { Hexadecimal = "F"; }
-                if (substring2 == 16) { while () { } }
+                if (substring2 == 10) { result = result+"A"; }
+                if (substring2 == 11) { result= result + "B"; }
+                if (substring2 == 12) { result = result + "C"; }
+                if (substring2 == 13) { result= result+ "D"; }
+                if (substring2 == 14) { result = result + "E"; }
+                if (substring2 == 15) { result = result + "F"; }
+              
             }
-            return result
+            return result;
         }
 
 
@@ -235,9 +297,78 @@ namespace Y9_DEC_TO_BIN_SKELETON
 
 
 
-    
-    
-    
+
+
+
+        static string Bintohex(int number)
+        {
+            int y = 1;
+            string binnumber = Convert.ToString(number);
+            int u = binnumber.Length - 1;
+            int i = 0;
+            int x = 0;
+            while (u != -1)
+            {
+                int binnumber2 = Convert.ToInt32(binnumber[u]);
+                if (binnumber2 == 49)
+                {
+                    if (i != 0)
+                    {
+                        x += (y);
+                    }
+                    if (i == 0)
+                    {
+                        x = y;
+                    }
+                }
+                u--;
+                i++;
+                y = 2 * y;
+            }
+
+            string result = null;
+          
+            while (number >= 9)
+            {
+                number = number / 16;
+
+
+               
+                    result = result + Convert.ToString(number);
+                
+
+                
+            }
+
+            if (number <= 9)
+            {
+                result = Convert.ToString(number / 16);
+            }
+            int substring2 = x % 16;
+            if (substring2 != 0 && substring2 < 9)
+
+                result = result + Convert.ToString(substring2);
+
+            if (substring2 > 9)
+            {
+                if (substring2 == 10) { result = result + "A"; }
+                if (substring2 == 11) { result = result + "B"; }
+                if (substring2 == 12) { result = result + "C"; }
+                if (substring2 == 13) { result = result + "D"; }
+                if (substring2 == 14) { result = result + "E"; }
+                if (substring2 == 15) { result = result + "F"; }
+
+            }
+            return result;
+        }
+
+
+
+
+
+
+
+
     }
 
 }
