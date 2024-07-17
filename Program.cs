@@ -71,35 +71,35 @@ namespace Y9_DEC_TO_BIN_SKELETON
 
 
             int Usernum = 0;
-            int numberbase = 0;
+            //int numberbase = 0;
 
 
 
-            Console.WriteLine("Press 1 to Start the denary to binary conversion if not then press any number to continue");
-            if (Convert.ToInt32(Console.ReadLine()) == 1)
-            {
-                while (Usernum == 0 || Usernum < 0)
-                {
-                    Console.WriteLine("Enter denary number");
-                    Usernum = Convert.ToInt32(Console.ReadLine());
-                    Console.WriteLine("Please enter the base");
-                    numberbase = Convert.ToInt32(Console.ReadLine());
-                }
-                Console.WriteLine(numberConversion(Usernum, numberbase));
-            }
+            //Console.WriteLine("Press 1 to Start the denary to binary conversion if not then press any number to continue");
+            //if (Convert.ToInt32(Console.ReadLine()) == 1)
+            //{
+            //    while (Usernum == 0 || Usernum < 0)
+            //    {
+            //        Console.WriteLine("Enter denary number");
+            //        Usernum = Convert.ToInt32(Console.ReadLine());
+            //        Console.WriteLine("Please enter the base");
+            //        numberbase = Convert.ToInt32(Console.ReadLine());
+            //    }
+            //    Console.WriteLine(numberConversion(Usernum, numberbase));
+            //}
 
 
 
-            Console.WriteLine("Press 2 to Start the denary to binary conversion if not then press any number to continue");
-            if (Convert.ToInt32(Console.ReadLine()) == 2)
-            {
+            //Console.WriteLine("Press 2 to Start the denary to binary conversion if not then press any number to continue");
+            //if (Convert.ToInt32(Console.ReadLine()) == 2)
+            //{
 
-                Console.WriteLine("Enter binary number");
-                Usernum = Convert.ToInt32(Console.ReadLine());
+            //    Console.WriteLine("Enter binary number");
+            //    Usernum = Convert.ToInt32(Console.ReadLine());
 
-                Console.WriteLine(numbertodenaryConversion(Usernum));
+            //    Console.WriteLine(numbertodenaryConversion(Usernum));
 
-            }
+            //}
 
 
 
@@ -230,68 +230,179 @@ namespace Y9_DEC_TO_BIN_SKELETON
 
         static string Dectohex(int number)
         {
+            int substring2 = number%16;
             string result = null;
 
 
-            int substring = 0;
-            if (number <= 9)
+            while (substring2 != 0 && number != 0)
             {
-                result = Convert.ToString(number / 16);
-            }
-
-
-
-            while (number >=9) 
-            {
-
-                substring = number / 16;
                 number = number / 16;
 
-                if (substring > 9)
+                if (number == 15 && number > 9)
                 {
-                    if (substring == 10) { result = result + "A"; }
-                    if (substring == 11) { result = result + "B"; }
-                    if (substring == 12) { result = result + "C"; }
-                    if (substring == 13) { result = result + "D"; }
-                    if (substring == 14) { result = result + "E"; }
-                    if (substring == 15) { result = result + "F"; }
+                    if (number == 10) { result = result + "A"; }
+                    if (number == 11) { result = result + "B"; }
+                    if (number == 12) { result = result + "C"; }
+                    if (number == 13) { result = result + "D"; }
+                    if (number == 14) { result = result + "E"; }
+                    if (number == 15) { result = result + "F"; }
+                }
+                else if (number<9)
+                {
+                    result = result + Convert.ToString(number);
+                }
+               
+                   
+                if (substring2 > 9)
+                {
+                    if (substring2 == 10) { result = result + "A"; }
+                    if (substring2 == 11) { result = result + "B"; }
+                    if (substring2 == 12) { result = result + "C"; }
+                    if (substring2 == 13) { result = result + "D"; }
+                    if (substring2 == 14) { result = result + "E"; }
+                    if (substring2 == 15) { result = result + "F"; }
+
 
                 }
-                if (number <= 9)
+                else
                 {
-                    result = Convert.ToString(result);
+                    result = result + Convert.ToString(substring2);
                 }
+                if (number == 16)
+                {
+                    result = result + Convert.ToString(number);
 
+                    if (substring2 != 0 && substring2 < 9)
+                    {
 
-
-
-
-
+                        result = result + Convert.ToString(substring2);
+                    }
+                }
+                substring2 = number % 16;
             }
-            
-            
-          
 
 
 
-            int substring2 = number % 16;
-            if (substring2 != 0 && substring2<9 )
 
-              result = result + Convert.ToString(substring2);
+            //int n = 0;
+            //int ;
+            //int substring = 0;
+            //int i = 0;
 
-            if (substring2 > 9)
-            {
-                if (substring2 == 10) { result = result+"A"; }
-                if (substring2 == 11) { result= result + "B"; }
-                if (substring2 == 12) { result = result + "C"; }
-                if (substring2 == 13) { result= result+ "D"; }
-                if (substring2 == 14) { result = result + "E"; }
-                if (substring2 == 15) { result = result + "F"; }
-              
-            }
+            //if (number <= 9)
+            //{
+            //   result = Convert.ToString(number);
+            //}
+
+
+
+            //while (number >=16) 
+            //{
+            //    number = number / 16;
+            //    if (i == 1) 
+            //    { 
+            //        n++; 
+            //    }
+            //    i++;
+            //}
+
+            //if (number != 0 && number < 9)
+
+            //    result = result + Convert.ToString(number);
+
+            //if (substring > 9)
+            //{
+            //    if (substring == 10) { result = result + "A"; }
+            //    if (substring == 11) { result = result + "B"; }
+            //    if (substring == 12) { result = result + "C"; }
+            //    if (substring == 13) { result = result + "D"; }
+            //    if (substring == 14) { result = result + "E"; }
+            //    if (substring == 15) { result = result + "F"; }
+
+            //}
+
+
+
+
+            //if (number == 16)
+            //{
+
+
+            //    if (substring2 != 0 && substring2 < 9)
+            //    {
+
+            //        result = result + Convert.ToString(substring2);
+            //    }
+
+
+
+
+
+
+            //    if (substring2 > 9)
+            //    {
+            //        if (substring2 == 10) { result = result + "A"; }
+            //        if (substring2 == 11) { result = result + "B"; }
+            //        if (substring2 == 12) { result = result + "C"; }
+            //        if (substring2 == 13) { result = result + "D"; }
+            //        if (substring2 == 14) { result = result + "E"; }
+            //        if (substring2 == 15) { result = result + "F"; }
+
+            //    }
+            //}
+
+
+
+            //if (substring2 == 0)
+            //{
+            //    result = result + "0";
+            //}
+
+
+            //if (substring2 != 0 && substring2<9 )
+
+            //  result = result + Convert.ToString(substring2);
+
+            //if (substring2 > 9)
+            //{
+            //    if (substring2 == 10) { result = result+"A"; }
+            //    if (substring2 == 11) { result= result + "B"; }
+            //    if (substring2 == 12) { result = result + "C"; }
+            //    if (substring2 == 13) { result= result+ "D"; }
+            //    if (substring2 == 14) { result = result + "E"; }
+            //    if (substring2 == 15) { result = result + "F"; }
+
+            //}
             return result;
         }
 
+
+
+
+        //substring = number / 16;
+        //number = number / 16;
+
+        //if (substring > 9)
+        //{
+        //    if (substring == 10) { result = result + "A"; }
+        //    if (substring == 11) { result = result + "B"; }
+        //    if (substring == 12) { result = result + "C"; }
+        //    if (substring == 13) { result = result + "D"; }
+        //    if (substring == 14) { result = result + "E"; }
+        //    if (substring == 15) { result = result + "F"; }
+
+        //}
+
+
+        //if (number <= 9)
+        //{
+        //    result = Convert.ToString(result);
+        //}
+
+        //if (number == 16) 
+        //{
+        //    result = Convert.ToString(n); 
+        //}
 
 
 
